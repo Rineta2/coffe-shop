@@ -1,0 +1,46 @@
+{
+  "short_name": "Cafe Street | Temukan Cafe Favorit Anda",
+  "name": "Cafe Street!",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "prefer_related_applications": false,
+  "categories": [
+    "cafe",
+    "coffee shop",
+    "kuliner",
+    "tempat nongkrong",
+    "cafe jakarta",
+    "cafe bandung",
+    "cafe surabaya",
+    "cafe bali",
+    "tempat kopi",
+    "space digitalia"
+  ],
+  "screenshots": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "description": "Cafe Street adalah panduan terbaik untuk menemukan cafe, tempat kopi, dan tempat nongkrong favorit Anda di seluruh Indonesia. Temukan tempat yang nyaman untuk bersantai, bekerja, atau berkumpul bersama teman!"
+}
