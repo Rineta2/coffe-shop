@@ -14,6 +14,8 @@ import Header from '@/components/layout/dashboard/Header'
 
 import Sidebar from '@/components/layout/dashboard/Sidebar'
 
+import AccessDenied from '@/hooks/dashboard/AccestDenied'
+
 export default function DashboardLayout({
     children,
 }: {
@@ -22,6 +24,7 @@ export default function DashboardLayout({
     const { user, loading } = useAuth()
     const router = useRouter()
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+    const [hasAccess, setHasAccess] = useState(true)
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen)
@@ -42,7 +45,7 @@ export default function DashboardLayout({
                     .single()
 
                 if (userError || userData?.role !== 'super-admins') {
-                    router.push('/')
+                    setHasAccess(false)
                     return
                 }
             }
@@ -61,6 +64,10 @@ export default function DashboardLayout({
 
     if (!user) {
         return null
+    }
+
+    if (!hasAccess) {
+        return <AccessDenied />
     }
 
     return (
