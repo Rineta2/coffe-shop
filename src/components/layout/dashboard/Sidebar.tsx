@@ -56,7 +56,7 @@ export default function SuperAdminHeader({ onSidebarToggle }: HeaderProps) {
         if (href === '/') {
             return pathname === '/';
         }
-        if (href === '/dashboard/super-admins') {
+        if (href === '/dashboard') {
             return pathname === href;
         }
         return pathname === href || pathname.startsWith(href + '/');
