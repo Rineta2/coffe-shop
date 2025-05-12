@@ -31,13 +31,8 @@ export const menuItems = [
         icon: ShoppingCart,
         subItems: [
             {
-                label: "All Products",
-                href: "/dashboard/products/all"
-            },
-
-            {
-                label: "Add Product",
-                href: "/dashboard/products/add"
+                label: "Products",
+                href: "/dashboard/products"
             },
 
             {
