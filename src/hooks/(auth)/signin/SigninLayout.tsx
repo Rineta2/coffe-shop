@@ -93,7 +93,7 @@ export default function SigninLayout() {
                                     onChange={handleChange}
                                     className="text-[#FF8C4B] focus:ring-[#FF8C4B]"
                                 />
-                                <Label htmlFor="remember">Remember me</Label>
+                                <Label htmlFor="remember" className="text-white/80">Remember me</Label>
                             </div>
                             <a href="/forgot-password" className="hover:underline">Forgot Password?</a>
                         </div>
@@ -104,9 +104,9 @@ export default function SigninLayout() {
                         >
                             {loading ? 'Logging in...' : 'Login'}
                         </Button>
-                        <p className="text-white/70 text-sm text-center">
+                        {/* <p className="text-white/70 text-sm text-center">
                             Don&apos;t have an account? <a href="/signup" className="text-[#FF8C4B] hover:underline">Sign up here</a>
-                        </p>
+                        </p> */}
                     </form>
                 </div>
             </div>

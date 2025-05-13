@@ -143,6 +143,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     }
 
+    const resetPassword = async (email: string) => {
+        try {
+            const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: `${window.location.origin}/reset-password`,
+            })
+
+            if (error) {
+                toast.error(error.message)
+                return
+            }
+
+            toast.success('Password reset link has been sent to your email!', {
+                duration: 3000,
+            })
+
+            setTimeout(() => {
+                router.push('/signin')
+            }, 3000)
+        } catch {
+            toast.error('An unexpected error occurred. Please try again.')
+        }
+    }
+
     const value = {
         user,
         session,
@@ -150,6 +173,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signUp,
         signIn,
         signOut,
+        resetPassword,
     }
 
     return (

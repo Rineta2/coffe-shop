@@ -96,7 +96,7 @@ export const updateProductsContent = async (
       .update({
         title: data.title,
         description: data.description,
-        category: data.category,
+        categories: data.category,
         rating: data.rating,
         price: data.price,
         image_url: imageUrl,
