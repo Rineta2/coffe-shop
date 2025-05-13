@@ -24,7 +24,7 @@ export default function DashboardLayout({
     const { user, loading } = useAuth()
     const router = useRouter()
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-    const [hasAccess, setHasAccess] = useState(true)
+    const [hasAccess, setHasAccess] = useState<boolean | null>(null)
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen)
@@ -33,6 +33,12 @@ export default function DashboardLayout({
     const renderSidebar = () => {
         return <Sidebar onSidebarToggle={setIsSidebarOpen} />
     }
+
+    useEffect(() => {
+        if (!loading && !user) {
+            router.push('/')
+        }
+    }, [loading, user, router])
 
     useEffect(() => {
         const checkRole = async () => {
@@ -48,13 +54,14 @@ export default function DashboardLayout({
                     setHasAccess(false)
                     return
                 }
+                setHasAccess(true)
             }
         }
 
         checkRole()
     }, [loading, router, user?.id])
 
-    if (loading) {
+    if (loading || hasAccess === null) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF8C4B]"></div>

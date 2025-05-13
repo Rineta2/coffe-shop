@@ -11,6 +11,8 @@ export interface ProductsContent {
 }
 
 export interface ContentModalProps {
+  isOpen: boolean;
+  onClose: () => void;
   formData: ProductsContent;
   setFormData: (data: ProductsContent) => void;
   selectedImage: File | null;
@@ -21,7 +23,8 @@ export interface ContentModalProps {
 }
 
 export interface DeleteModalProps {
+  isOpen: boolean;
+  onClose: () => void;
   onDelete: () => void;
   isSubmitting: boolean;
-  onClose: () => void;
 }

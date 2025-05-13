@@ -39,16 +39,14 @@ export const createProductsContent = async (
     // Create content in Supabase
     const { data: content, error } = await supabase
       .from(process.env.NEXT_PUBLIC_PRODUCTS as string)
-      .insert([
-        {
-          title: data.title,
-          description: data.description,
-          rating: data.rating,
-          price: data.price,
-          category: data.category,
-          image_url: imageUrl,
-        },
-      ])
+      .insert({
+        title: data.title,
+        description: data.description,
+        rating: Number(data.rating),
+        price: Number(data.price),
+        categories: data.category,
+        image_url: imageUrl,
+      })
       .select()
       .single();
 

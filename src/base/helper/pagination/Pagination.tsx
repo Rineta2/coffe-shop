@@ -9,7 +9,7 @@ interface PaginationProps {
 
 export default function Pagination({ pageCount, onPageChange, currentPage }: PaginationProps) {
     return (
-        <div className="flex flex-row justify-between items-center gap-4 mt-6">
+        <div className="flex flex-row justify-between items-center gap-4 mt-10">
             <div className="text-[var(--primary)] font-medium">
                 Page {currentPage + 1} of {pageCount}
             </div>
@@ -22,11 +22,12 @@ export default function Pagination({ pageCount, onPageChange, currentPage }: Pag
                 previousLabel="Previous"
                 renderOnZeroPageCount={null}
                 className="flex items-center gap-2"
-                pageClassName="px-3 py-1 rounded-md hover:bg-[var(--secondary)] transition-colors duration-200"
+                pageClassName="px-3 py-1 rounded-md hover:bg-[#2f2105] transition-colors duration-200"
                 pageLinkClassName="text-[var(--primary)]"
                 previousClassName="px-3 py-1 rounded-md hover:bg-[var(--secondary)] transition-colors duration-200"
                 nextClassName="px-3 py-1 rounded-md hover:bg-[var(--secondary)] transition-colors duration-200"
-                activeClassName="bg-[var(--title)] text-white hover:bg-[var(--title)]"
+                activeClassName="bg-primary font-bold border border-[var(--primary)]"
+                activeLinkClassName="text-white"
                 disabledClassName="opacity-50 cursor-not-allowed"
                 forcePage={currentPage}
             />
