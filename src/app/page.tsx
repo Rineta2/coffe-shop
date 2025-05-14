@@ -12,9 +12,9 @@ export default function page() {
   return (
     <Fragment>
       <HomeLayout />
-      <ServiceList />
-      <About />
-      <ProductsList />
+      {/* <ServiceList /> */}
+      {/* <About /> */}
+      {/* <ProductsList /> */}
     </Fragment>
   )
 }

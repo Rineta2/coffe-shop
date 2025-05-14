@@ -2,7 +2,7 @@
 
 import { FatchingTable } from '@/utils/lib/FatchingTable';
 
-import { Home } from "@/components/ui/home/types/home"
+import { AboutProps } from "@/components/ui/about/types/about"
 
 import Image from "next/image"
 
@@ -13,7 +13,7 @@ import Link from 'next/link';
 import AboutSkelaton from "@/components/ui/about/AboutSkelaton"
 
 export default function About() {
-    const { data: home, loading, error } = FatchingTable<Home>({
+    const { data: about, loading, error } = FatchingTable<AboutProps>({
         table: process.env.NEXT_PUBLIC_ABOUT as string,
     });
 
@@ -25,7 +25,7 @@ export default function About() {
         return <div>Error: {error.message}</div>;
     }
 
-    const homeData = home[0];
+    const aboutData = about[0];
 
     return (
         <section className="min-h-full relative flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 overflow-hidden">
@@ -34,8 +34,8 @@ export default function About() {
                 <div className='w-full h-full z-50 relative max-w-[500px] mx-auto order-2 md:order-1'>
                     <div className="relative w-full aspect-[4/3] md:aspect-[3/4]">
                         <Image
-                            src={homeData.image_url}
-                            alt={homeData.title}
+                            src={aboutData.image_url}
+                            alt={aboutData.title}
                             fill
                             className="object-cover rounded-lg"
                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 45vw, 35vw"
@@ -50,11 +50,11 @@ export default function About() {
                         style={{
                             lineHeight: 1.2
                         }}>
-                        {homeData.title}
+                        {aboutData.title}
                     </h1>
 
                     <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
-                        {homeData.description}
+                        {aboutData.description}
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6 justify-center md:justify-start pt-2 sm:pt-3 md:pt-4">

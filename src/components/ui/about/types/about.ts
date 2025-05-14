@@ -1,4 +1,4 @@
-export interface Home {
+export interface AboutProps {
   id: string;
   title: string;
   description: string;
