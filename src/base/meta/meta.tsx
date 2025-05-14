@@ -3,7 +3,7 @@ import { Fragment } from "react";
 export const metadata = {
     title: "Cafe Street | Temukan Tempat Nongkrong Favorit Anda",
     description: "Jelajahi berbagai pilihan cafe, tempat kopi, dan spot kuliner unik di seluruh Indonesia. Temukan suasana nyaman untuk bersantai atau bekerja di Cafe Street!",
-    author: "Space Digitalia",
+    author: "Space Digitalia - https://spacedigitalia.my.id",
     keywords: "Cafe, Kopi, Tempat Nongkrong, Kuliner, Cafe Unik, Cafe Hits, Cafe Street",
     icons: {
         icon: "/favicon.ico",

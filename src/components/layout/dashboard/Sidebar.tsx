@@ -79,7 +79,7 @@ export default function SuperAdminHeader({ onSidebarToggle }: HeaderProps) {
             <div className="p-6 border-b border-gray-100">
                 <Link href="/" className="flex items-center">
                     <span className="text-xl font-semibold text-gray-900">
-                        Real Estate
+                        Coffe Shop
                     </span>
                 </Link>
             </div>

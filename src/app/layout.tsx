@@ -12,7 +12,7 @@ import Pathname from "@/base/router/Pathname";
 
 metadata.manifest = "/manifest.json";
 
-import { openSans } from "@/base/fonts/Fonts";
+import { playfairDisplay, poppins } from "@/base/fonts/Fonts";
 
 export default function RootLayout({
   children,
@@ -25,7 +25,7 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body
-        className={`${openSans.variable} antialiased`}
+        className={`${playfairDisplay.variable} ${poppins.variable} antialiased`}
       >
         <Providers>
           <Pathname>

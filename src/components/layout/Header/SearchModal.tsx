@@ -1,6 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { TextInput } from 'flowbite-react';
+import { FatchingTable } from '@/utils/lib/FatchingTable';
+import { Product } from '@/components/ui/products/types/products';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface SearchModalProps {
     isOpen: boolean;
@@ -9,6 +13,27 @@ interface SearchModalProps {
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const { data: products } = FatchingTable<Product>({
+        table: process.env.NEXT_PUBLIC_PRODUCTS as string,
+    });
+
+    // Get unique categories from products
+    const uniqueCategories = products ? [...new Set(products.map(product => product.categories))] : [];
+
+    useEffect(() => {
+        // Prevent scrolling when modal is open
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        // Cleanup function to restore scrolling when component unmounts
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
 
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
@@ -34,6 +59,12 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         };
     }, [isOpen, onClose]);
 
+    const filteredProducts = products?.filter(product =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.categories.toLowerCase().includes(searchQuery.toLowerCase())
+    ) || [];
+
     if (!isOpen) return null;
 
     return (
@@ -53,21 +84,64 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         placeholder="Search your favorite coffee..."
                         className="w-full pl-12 pr-4 py-3 rounded-xl shadow-lg focus:ring-2 focus:ring-[#ff902a]/30 border-transparent border outline-none bg-white/95"
                         autoFocus
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </div>
-                <div className="mt-6">
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4">Popular Searches</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {['Cappuccino', 'Latte', 'Espresso', 'Cold Brew', 'Mocha'].map((item) => (
-                            <button
-                                key={item}
-                                className="px-4 py-2 bg-gray-100 hover:bg-[#ff902a]/10 text-gray-700 hover:text-[#ff902a] rounded-full transition-colors"
-                            >
-                                {item}
-                            </button>
-                        ))}
+
+                {searchQuery ? (
+                    <div className="mt-6 max-h-[60vh] overflow-y-auto">
+                        {filteredProducts.length > 0 ? (
+                            <div className="space-y-4">
+                                {filteredProducts.map((product) => (
+                                    <Link
+                                        key={product.id}
+                                        href={`/products/${product.id}`}
+                                        className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors"
+                                        onClick={onClose}
+                                    >
+                                        <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                            <Image
+                                                src={product.image_url}
+                                                alt={product.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <div className="flex-1">
+                                            <h4 className="font-semibold text-gray-900">{product.title}</h4>
+                                            <p className="text-sm text-gray-600 line-clamp-1">{product.description}</p>
+                                            <div className="flex items-center gap-2 mt-1">
+                                                <span className="text-[#ff902a] font-semibold">{product.price} K</span>
+                                                <span className="text-sm text-gray-500">•</span>
+                                                <span className="text-sm text-gray-500">{product.categories}</span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-8">
+                                <p className="text-gray-500">No products found</p>
+                            </div>
+                        )}
                     </div>
-                </div>
+                ) : (
+                    <div className="mt-6">
+                        <h3 className="text-lg font-semibold text-gray-700 mb-4">Popular Categories</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {uniqueCategories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => setSearchQuery(category)}
+                                    className="px-4 py-2 bg-gray-100 hover:bg-[#ff902a]/10 text-gray-700 hover:text-[#ff902a] rounded-full transition-colors capitalize"
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

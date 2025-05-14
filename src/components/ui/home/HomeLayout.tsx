@@ -36,7 +36,7 @@ export default function ProductsList() {
 
     return (
         <>
-            <section className="min-h-full xl:min-h-screen bg-[#f5eada] brightness-95 relative flex flex-col items-center justify-center py-44 overflow-hidden">
+            <section className="min-h-full xl:min-h-screen bg-[#f5eada] brightness-95 relative flex flex-col items-center justify-center py-44 overflow-hidden" id="home">
                 <HeroSection homeData={homeData} />
                 <DecorativeImages />
             </section>

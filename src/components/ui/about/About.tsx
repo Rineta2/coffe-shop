@@ -23,7 +23,7 @@ export default function About() {
     const aboutData = about[0];
 
     return (
-        <section className="min-h-full relative flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 overflow-hidden">
+        <section className="min-h-full relative flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 overflow-hidden" id="about">
             <HeroSection aboutData={aboutData} />
             <DecorativeBackground />
         </section>

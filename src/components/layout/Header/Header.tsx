@@ -26,6 +26,7 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [activeLink, setActiveLink] = useState<string | null>('home');
     const { user, signOut } = useAuth();
     const { totalItems } = useCart();
     const [profile, setProfile] = useState<{ full_name: string; photo_url: string | null } | null>(null);
@@ -66,7 +67,32 @@ export default function Header() {
         };
     }, [isProfileMenuOpen]);
 
-    // Add scroll event listener
+    // Active link based on scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (
+                    scrollPosition >= sectionTop - 0 &&
+                    scrollPosition < sectionTop + sectionHeight - 0
+                ) {
+                    setActiveLink(section.getAttribute('id'));
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // Header scroll effect
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -79,6 +105,7 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
 
     return (
         <>
@@ -100,7 +127,7 @@ export default function Header() {
                             <li key={idx}>
                                 <Link
                                     href={item.path}
-                                    className={`text-base font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#ff902a] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${idx === 0 ? 'text-[#ff902a] after:w-full' : 'text-gray-700 hover:text-[#ff902a]'}`}
+                                    className={`text-base font-medium transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#ff902a] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${activeLink === item.path.replace('#', '') ? 'text-[#ff902a] after:w-full' : 'text-gray-700 hover:text-[#ff902a]'}`}
                                 >
                                     {item.name || item.deliver}
                                 </Link>
@@ -196,7 +223,7 @@ export default function Header() {
                                     <Link
                                         href={item.path}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`block w-full text-left text-lg sm:text-xl font-medium transition-all duration-300 px-4 py-3 rounded-lg ${idx === 0
+                                        className={`block w-full text-left text-lg sm:text-xl font-medium transition-all duration-300 px-4 py-3 rounded-lg ${activeLink === item.path.replace('#', '')
                                             ? 'text-[#ff902a] bg-[#ff902a]/10'
                                             : 'text-gray-700 hover:text-[#ff902a] hover:bg-[#ff902a]/10'
                                             }`}

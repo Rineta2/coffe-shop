@@ -59,7 +59,7 @@ export default function ProductsList() {
     }
 
     return (
-        <section className="min-h-full relative flex flex-col items-center justify-center py-16 md:py-20 overflow-hidden">
+        <section className="min-h-full relative flex flex-col items-center justify-center py-16 md:py-20 overflow-hidden" id="products">
             <div className="container px-4 md:px-10">
                 <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0 md:mb-20 mb-10'>
                     <motion.h1

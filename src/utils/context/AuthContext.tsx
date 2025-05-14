@@ -166,6 +166,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     }
 
+    const changePassword = async (newPassword: string) => {
+        try {
+            const { error } = await supabase.auth.updateUser({ password: newPassword });
+            if (error) {
+                toast.error(error.message);
+                return false;
+            }
+            toast.success('Password updated successfully!');
+            return true;
+        } catch {
+            toast.error('An unexpected error occurred. Please try again.');
+            return false;
+        }
+    };
+
     const value = {
         user,
         session,
@@ -174,6 +189,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signIn,
         signOut,
         resetPassword,
+        changePassword,
     }
 
     return (

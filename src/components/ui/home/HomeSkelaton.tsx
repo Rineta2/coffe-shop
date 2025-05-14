@@ -56,13 +56,6 @@ export default function HomeSkelaton() {
             {/* Popular Products Section Skeleton */}
             <div className='relative px-4 sm:px-6 md:px-10 xl:absolute bottom-0 left-0 right-0 xl:bottom-[-500px] xl:left-0 xl:right-0 mb-10'>
                 <div className="container">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-10 capitalize">
-                        Popular <span className="relative inline-block">
-                            <span className="z-10 relative">Now</span>
-                            <span className="absolute left-0 right-0 bottom-0 h-1 bg-orange-400 rounded -z-10" style={{ height: '4px' }}></span>
-                        </span>
-                    </h1>
-
                     <div className="flex flex-row bg-[#F9D9AA] px-4 sm:px-6 md:px-10 py-6 md:py-10 rounded-2xl md:rounded-3xl gap-4 md:gap-6 lg:gap-10 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default snap-x snap-mandatory md:snap-none">
                         {[1, 2, 3].map((i) => (
                             <div key={i} className="group relative bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 flex flex-col min-w-[260px] sm:min-w-[280px] md:min-w-0 md:w-full flex-shrink-0 md:flex-shrink snap-center">

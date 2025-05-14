@@ -1,7 +1,13 @@
-import { Open_Sans } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 
-export const openSans = Open_Sans({
-  variable: "--font-open-sans",
+export const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
   weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
+export const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
 });

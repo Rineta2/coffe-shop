@@ -1,7 +1,5 @@
 import Image from "next/image"
 
-import Link from 'next/link';
-
 import { motion } from "framer-motion";
 
 import { HeroSectionProps } from "@/components/ui/home/types/home"
@@ -38,15 +36,17 @@ export default function HeroSection({ homeData }: HeroSectionProps) {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6 justify-center xl:justify-start pt-2 sm:pt-3 md:pt-4"
                 >
-                    <Link
-                        href={'#product'}
+                    <a
+                        href="https://wa.me/+6281398632939?text=Halo%20saya%20dari%20website%20demo%20coffe%20street%20ingin%20mengetahui%20product%20lebih%20lanjut"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-full sm:w-auto bg-[#2f2105] text-white px-5 sm:px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 md:py-4 rounded-full flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:bg-[#3d2a0a] transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm sm:text-base"
                     >
                         Order now
                         <span className='p-1 sm:p-1.5 rounded-full bg-[#ff902a] text-white transform hover:rotate-12 transition-transform' role="img" aria-label="cart">🛒</span>
-                    </Link>
+                    </a>
 
-                    <a href="#" className="text-orange-400 font-semibold hover:text-orange-500 transition-colors duration-300 hover:underline text-sm sm:text-base">More menu</a>
+                    <a href="#products" className="text-orange-400 font-semibold hover:text-orange-500 transition-colors duration-300 hover:underline text-sm sm:text-base">More menu</a>
                 </motion.div>
             </div>
 
