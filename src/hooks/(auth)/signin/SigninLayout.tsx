@@ -14,12 +14,12 @@ import { useAuth } from '@/utils/context/AuthContext'
 
 export default function SigninLayout() {
     const [showPassword, setShowPassword] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
         password: '',
         remember: false
     })
-    const [loading, setLoading] = useState(false)
     const { signIn } = useAuth()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,9 +32,14 @@ export default function SigninLayout() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        setLoading(true)
-        await signIn(formData.email, formData.password)
-        setLoading(false)
+        setIsLoading(true)
+        try {
+            await signIn(formData.email, formData.password)
+        } catch (error) {
+            console.error('Login failed:', error)
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -99,10 +104,10 @@ export default function SigninLayout() {
                         </div>
                         <Button
                             type="submit"
+                            disabled={isLoading}
                             className="w-full bg-[#FF8C4B] hover:bg-[#ff7a2a] text-white font-semibold text-lg py-2 rounded shadow"
-                            disabled={loading}
                         >
-                            {loading ? 'Logging in...' : 'Login'}
+                            {isLoading ? 'Loading...' : 'Login'}
                         </Button>
                         {/* <p className="text-white/70 text-sm text-center">
                             Don&apos;t have an account? <a href="/signup" className="text-[#FF8C4B] hover:underline">Sign up here</a>
