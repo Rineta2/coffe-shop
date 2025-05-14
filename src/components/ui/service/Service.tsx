@@ -22,7 +22,7 @@ export default function ProductsList() {
     }
 
     return (
-        <section className="pt-20 md:pt-28 py-6 md:py-10">
+        <section className="xl:pt-[500px] py-6 md:py-10">
             <div className="container px-4 md:px-10">
                 <h1 className="text-3xl md:text-4xl font-bold mb-12 md:mb-24 capitalize">
                     How to use delivery <span className="relative inline-block">
@@ -31,10 +31,10 @@ export default function ProductsList() {
                     </span>
                 </h1>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {products.map((product) => (
                         <div key={product.id} className="flex flex-col items-center justify-center p-4">
-                            <div className="relative w-full aspect-square max-w-[200px] md:max-w-[280px]">
+                            <div className="relative w-full aspect-square max-w-[150px] md:max-w-[280px]">
                                 <Image
                                     src={product.image_url}
                                     alt={product.title}

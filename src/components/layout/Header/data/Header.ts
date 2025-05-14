@@ -8,12 +8,12 @@ export const navLink = [
   {
     id: 2,
     name: "Our Product",
-    path: "product",
+    path: "#products",
   },
 
   {
     id: 3,
     deliver: "Delivery",
-    path: "delivery",
+    path: "#delivery",
   },
 ];

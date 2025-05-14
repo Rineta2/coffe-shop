@@ -11,7 +11,9 @@ import { navLink } from "@/components/layout/Header/data/Header"
 import { ShoppingCart, Search, LogIn, Menu, X } from "lucide-react"
 
 import { useAuth } from '@/utils/context/AuthContext'
+
 import { supabase } from '@/utils/supabase/supabase'
+
 import SearchModal from './SearchModal'
 
 export default function Header() {

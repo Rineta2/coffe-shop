@@ -2,19 +2,19 @@ import React from 'react'
 
 export default function AboutSkelaton() {
     return (
-        <section className="min-h-full relative flex flex-col items-center justify-center py-16 overflow-hidden">
-            <div className="container px-4 md:px-10 grid grid-cols-2 items-center z-50 gap-6">
+        <section className="min-h-full relative flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 overflow-hidden">
+            <div className="container px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 items-center z-50 gap-8 md:gap-6">
                 {/* Image Skeleton */}
-                <div className='w-full h-full z-50 relative max-w-[500px] mx-auto md:mx-0'>
+                <div className='w-full h-full z-50 relative max-w-[500px] mx-auto order-2 md:order-1'>
                     <div className="w-full aspect-[4/3] md:aspect-[3/4] bg-gray-200 rounded-lg relative overflow-hidden">
                         <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                     </div>
                 </div>
 
                 {/* Content Skeleton */}
-                <div className="text-center md:text-left space-y-3 sm:space-y-4 md:space-y-6 mb-4 sm:mb-6 md:mb-0">
+                <div className="text-center md:text-left space-y-4 sm:space-y-5 md:space-y-6 mb-6 md:mb-0 order-1 md:order-2">
                     {/* Title Skeleton */}
-                    <div className="h-12 md:h-16 bg-gray-200 rounded-lg relative overflow-hidden">
+                    <div className="h-12 md:h-16 lg:h-20 bg-gray-200 rounded-lg relative overflow-hidden">
                         <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                     </div>
 

@@ -45,10 +45,10 @@ export default function ProductsList() {
 
     return (
         <>
-            <section className="min-h-full sm:min-h-screen bg-[#f5eada] relative flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+            <section className="min-h-full xl:min-h-screen bg-[#f5eada] brightness-95 relative flex flex-col items-center justify-center py-44 overflow-hidden">
                 {/* Hero Section */}
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-4 sm:px-6 md:px-8 lg:px-12 z-50 gap-8 md:gap-12">
-                    <div className="text-center md:text-left space-y-4 sm:space-y-6 mb-6 sm:mb-8 md:mb-0">
+                <div className="container mx-auto flex flex-col xl:grid xl:grid-cols-2 items-center px-4 sm:px-6 md:px-8 lg:px-12 z-50 gap-6 md:gap-8 lg:gap-12">
+                    <div className="text-center xl:text-left space-y-4 sm:space-y-5 md:space-y-6 mb-6 sm:mb-8 xl:mb-0">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold capitalize text-[#2f2105] leading-tight tracking-tight"
                             style={{
                                 lineHeight: 1.2
@@ -56,14 +56,14 @@ export default function ProductsList() {
                             {homeData.title}
                         </h1>
 
-                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
+                        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto xl:mx-0">
                             {homeData.description}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center md:justify-start pt-2 sm:pt-4">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6 justify-center xl:justify-start pt-2 sm:pt-3 md:pt-4">
                             <Link
                                 href={'#product'}
-                                className="w-full sm:w-auto bg-[#2f2105] text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-full flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:bg-[#3d2a0a] transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm sm:text-base"
+                                className="w-full sm:w-auto bg-[#2f2105] text-white px-5 sm:px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 md:py-4 rounded-full flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:bg-[#3d2a0a] transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm sm:text-base"
                             >
                                 Order now
                                 <span className='p-1 sm:p-1.5 rounded-full bg-[#ff902a] text-white transform hover:rotate-12 transition-transform' role="img" aria-label="cart">🛒</span>
@@ -73,12 +73,12 @@ export default function ProductsList() {
                         </div>
                     </div>
 
-                    <div className='w-full h-[250px] sm:h-[350px] lg:h-[450px] z-50 relative group'>
+                    <div className='w-full xl:max-w-none h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] z-50 relative group'>
                         <div className="absolute inset-0 bg-gradient-to-r from-[#f5eada]/20 to-transparent rounded-2xl transform transition-transform duration-500 group-hover:scale-105"></div>
                         <Image
                             src={homeData.image_url}
                             alt={homeData.title}
-                            className="object-contain md:object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
+                            className="object-contain xl:object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 40vw"
                             priority
@@ -87,22 +87,22 @@ export default function ProductsList() {
                 </div>
 
                 {/* Decorative Images */}
-                <div className="absolute top-0 right-0 z-0 w-1/2 sm:w-1/3 md:w-auto opacity-60 sm:opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-0 right-0 z-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto opacity-60 sm:opacity-80">
                     <Image
                         src={topImage}
                         alt='top-image'
                         quality={100}
                         loading='lazy'
-                        className="w-full h-auto transform hover:scale-105 transition-transform duration-500"
+                        className="w-full h-auto"
                     />
                 </div>
-                <div className="absolute bottom-0 left-0 z-0 w-1/2 sm:w-1/3 md:w-auto opacity-60 sm:opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 z-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-auto opacity-60 sm:opacity-80">
                     <Image
                         src={bottomImage}
                         alt='bottom-image'
                         quality={100}
                         loading='lazy'
-                        className="w-full h-auto transform hover:scale-105 transition-transform duration-500"
+                        className="w-full h-auto"
                     />
                 </div>
 

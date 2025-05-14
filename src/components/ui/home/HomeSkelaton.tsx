@@ -54,38 +54,54 @@ export default function HomeSkelaton() {
             </section>
 
             {/* Popular Products Section Skeleton */}
-            <div className='relative px-4 md:px-10 mt-32 md:mt-0'>
-                <div className="container mx-auto">
-                    <div className="flex flex-row bg-[#F9D9AA] px-4 md:px-10 py-10 rounded-3xl gap-6 md:gap-10 overflow-x-auto md:overflow-visible">
+            <div className='relative px-4 sm:px-6 md:px-10 xl:absolute bottom-0 left-0 right-0 xl:bottom-[-500px] xl:left-0 xl:right-0 mb-10'>
+                <div className="container">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-10 capitalize">
+                        Popular <span className="relative inline-block">
+                            <span className="z-10 relative">Now</span>
+                            <span className="absolute left-0 right-0 bottom-0 h-1 bg-orange-400 rounded -z-10" style={{ height: '4px' }}></span>
+                        </span>
+                    </h1>
+
+                    <div className="flex flex-row bg-[#F9D9AA] px-4 sm:px-6 md:px-10 py-6 md:py-10 rounded-2xl md:rounded-3xl gap-4 md:gap-6 lg:gap-10 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default snap-x snap-mandatory md:snap-none">
                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="bg-white rounded-2xl shadow-lg md:-mt-36 p-4 md:p-5 min-w-[280px] md:min-w-0 md:w-full flex-shrink-0 md:flex-shrink flex flex-col items-center">
+                            <div key={i} className="group relative bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 flex flex-col min-w-[260px] sm:min-w-[280px] md:min-w-0 md:w-full flex-shrink-0 md:flex-shrink snap-center">
                                 {/* Image Skeleton */}
-                                <div className="w-full max-w-[250px] h-[250px] bg-gray-200 rounded-xl relative overflow-hidden mb-4">
+                                <div className="relative w-full aspect-[3/2] mb-3 md:mb-4 overflow-hidden rounded-lg md:rounded-xl bg-gray-200">
                                     <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                                 </div>
 
-                                {/* Title and Price Skeleton */}
-                                <div className="w-full flex justify-between items-center mb-1">
-                                    <div className="h-6 w-24 bg-gray-200 rounded relative overflow-hidden">
-                                        <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
-                                    </div>
-                                    <div className="h-6 w-16 bg-gray-200 rounded relative overflow-hidden">
+                                {/* Rating Skeleton */}
+                                <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-white/90 backdrop-blur-sm px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg md:rounded-xl flex items-center shadow-md">
+                                    <div className="h-4 w-12 bg-gray-200 rounded relative overflow-hidden">
                                         <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                                     </div>
                                 </div>
 
-                                {/* Tags Skeleton */}
-                                <div className="flex gap-2 mb-3 w-full">
-                                    <div className="h-6 w-16 bg-gray-200 rounded relative overflow-hidden">
-                                        <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
-                                    </div>
-                                    <div className="h-6 w-16 bg-gray-200 rounded relative overflow-hidden">
+                                {/* Category Skeleton */}
+                                <div className='flex justify-end items-end mb-3 md:mb-4'>
+                                    <div className='px-3 md:px-4 py-1 md:py-1.5 bg-gray-200 rounded-full h-6 w-20 relative overflow-hidden'>
                                         <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                                     </div>
                                 </div>
 
-                                {/* Button Skeleton */}
-                                <div className="h-10 w-10 bg-gray-200 rounded-full relative overflow-hidden mt-auto">
+                                {/* Title Skeleton */}
+                                <div className="h-6 w-3/4 bg-gray-200 rounded mb-2 md:mb-3 relative overflow-hidden">
+                                    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
+                                </div>
+
+                                {/* Price Skeleton */}
+                                <div className="h-8 w-20 bg-gray-200 rounded mb-2 md:mb-3 relative overflow-hidden">
+                                    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
+                                </div>
+
+                                {/* Description Skeleton */}
+                                <div className="h-12 w-full bg-gray-200 rounded mb-14 md:mb-12 relative overflow-hidden">
+                                    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
+                                </div>
+
+                                {/* Cart Button Skeleton */}
+                                <div className="bottom-3 right-3 md:bottom-4 md:right-4 h-10 w-10 bg-gray-200 rounded-full relative overflow-hidden">
                                     <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
                                 </div>
                             </div>
