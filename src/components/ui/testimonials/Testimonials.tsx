@@ -4,19 +4,22 @@ import { FatchingTable } from '@/utils/lib/FatchingTable';
 
 import { Testimonials } from "@/components/ui/testimonials/types/testimonials"
 
-import Image from "next/image"
-
 import TestimonialsSkelaton from "@/components/ui/testimonials/TestimonialsSkelaton"
 
-import bg from "@/base/assets/testi-bg.png"
+import TestimonialError from "@/components/ui/testimonials/TestimonialError"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import TestimonialError from "@/components/ui/testimonials/TestimonialError"
+import TestimonialsHeader from '@/components/ui/testimonials/components/TestimonialsHeader';
+
+import TestimonialCard from '@/components/ui/testimonials/components/TestimonialCard';
+
+import TestimonialsBackground from '@/components/ui/testimonials/components/TestimonialsBackground';
 
 // Add custom styles for pagination
 const customStyles = `
@@ -49,10 +52,7 @@ export default function TestimonialsLayout() {
             <style jsx global>{customStyles}</style>
             <div className="container px-4 md:px-10 z-50">
                 <div className='flex flex-col md:flex-row items-center gap-6 md:gap-8'>
-                    <div className='flex flex-col justify-center h-full pt-6 md:pt-10 w-full sm:w-1/2'>
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">What they say about us</h1>
-                        <p className="text-gray-500 text-base sm:text-lg">We always provide the best service and always maintain the quality of coffee</p>
-                    </div>
+                    <TestimonialsHeader />
 
                     <Swiper
                         slidesPerView={1}
@@ -86,23 +86,7 @@ export default function TestimonialsLayout() {
                                 key={idx}
                                 className="flex justify-center items-center text-center text-lg h-full"
                             >
-                                <div className="flex flex-col items-center w-full">
-                                    <div className="relative w-full h-full">
-                                        <Image
-                                            src={item.image_url}
-                                            alt={item.name}
-                                            quality={100}
-                                            width={500}
-                                            height={500}
-                                            className='w-60 h-60 lg:w-72 lg:h-72 object-contain'
-                                        />
-
-                                        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 sm:left-8 sm:translate-x-0 bg-[#ffcb7d] px-4 py-3 rounded-md w-[85%] sm:w-auto">
-                                            <h3 className="font-bold text-xl md:text-2xl text-gray-800 mb-1 text-start">{item.name}</h3>
-                                            <p className="text-gray-600 text-sm md:text-base text-start line-clamp-3">{item.message}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <TestimonialCard item={item} index={idx} />
                             </SwiperSlide>
                         ))}
                         <div className="custom-swiper-pagination mt-6 sm:mt-8 flex justify-center gap-2" />
@@ -110,10 +94,7 @@ export default function TestimonialsLayout() {
                 </div>
             </div>
 
-            <div className='absolute inset-0 h-full z-0'>
-                <Image src={bg} alt='background' quality={100} />
-            </div>
-
+            <TestimonialsBackground />
         </section>
     );
 } 

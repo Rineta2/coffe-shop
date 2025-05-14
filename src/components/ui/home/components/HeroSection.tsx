@@ -1,11 +1,10 @@
 import Image from "next/image"
-import Link from 'next/link';
-import { motion } from "framer-motion";
-import { Home } from "@/components/ui/home/types/home"
 
-interface HeroSectionProps {
-    homeData: Home;
-}
+import Link from 'next/link';
+
+import { motion } from "framer-motion";
+
+import { HeroSectionProps } from "@/components/ui/home/types/home"
 
 export default function HeroSection({ homeData }: HeroSectionProps) {
     return (

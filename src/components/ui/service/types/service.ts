@@ -6,3 +6,8 @@ export interface Service {
   created_at: string;
   updated_at: string;
 }
+
+export interface ServiceCardProps {
+  product: Service;
+  index: number;
+}

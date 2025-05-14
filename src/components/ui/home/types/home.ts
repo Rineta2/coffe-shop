@@ -6,3 +6,7 @@ export interface Home {
   created_at: string;
   updated_at: string;
 }
+
+export interface HeroSectionProps {
+  homeData: Home;
+}

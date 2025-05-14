@@ -12,16 +12,22 @@ import { ShoppingCart, Search, LogIn, Menu, X } from "lucide-react"
 
 import { useAuth } from '@/utils/context/AuthContext'
 
+import { useCart } from '@/utils/context/CartContext'
+
 import { supabase } from '@/utils/supabase/supabase'
 
 import SearchModal from './SearchModal'
 
+import CartModal from './CartModal'
+
 export default function Header() {
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const { user, signOut } = useAuth();
+    const { totalItems } = useCart();
     const [profile, setProfile] = useState<{ full_name: string; photo_url: string | null } | null>(null);
     const profileRef = useRef<HTMLDivElement>(null);
 
@@ -111,8 +117,20 @@ export default function Header() {
                                 <Search size={20} className="sm:w-6 sm:h-6" />
                             </button>
                         </div>
-                        <button className="p-1.5 sm:p-2 text-gray-700 hover:text-[#ff902a] hover:bg-gray-100 rounded-full transition-all duration-300 hover:scale-110">
+                        <button
+                            onClick={() => setIsCartModalOpen(true)}
+                            className="relative p-1.5 sm:p-2 text-gray-700 hover:text-[#ff902a] hover:bg-gray-100 rounded-full transition-all duration-300 hover:scale-110"
+                        >
                             <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+                            {totalItems > 0 ? (
+                                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    {totalItems}
+                                </span>
+                            ) : (
+                                <span className="absolute -top-1 -right-1 bg-gray-400 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    0
+                                </span>
+                            )}
                         </button>
                         {user && profile ? (
                             <div className="hidden md:flex items-center relative" ref={profileRef}>
@@ -247,6 +265,10 @@ export default function Header() {
             <SearchModal
                 isOpen={isSearchModalOpen}
                 onClose={() => setIsSearchModalOpen(false)}
+            />
+            <CartModal
+                isOpen={isCartModalOpen}
+                onClose={() => setIsCartModalOpen(false)}
             />
         </>
     )
