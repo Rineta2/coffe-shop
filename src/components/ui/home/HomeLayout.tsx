@@ -10,24 +10,24 @@ import bottomImage from "@/base/assets/bottom.png"
 
 import topImage from "@/base/assets/top.png"
 
-import PopularProduct from "@/components/ui/home/PopularProduct"
+// import PopularProduct from "@/components/ui/home/PopularProduct"
 
 import Link from 'next/link';
 
 import HomeSkelaton from "@/components/ui/home/HomeSkelaton"
 
-import { Product } from "@/components/ui/products/types/products"
+// import { Product } from "@/components/ui/products/types/products"
 
 export default function ProductsList() {
     const { data: home, loading: homeLoading, error: homeError } = FatchingTable<Home>({
         table: process.env.NEXT_PUBLIC_HOME as string,
     });
 
-    const { data: products, loading: productsLoading, error: productsError } = FatchingTable<Product>({
-        table: process.env.NEXT_PUBLIC_PRODUCTS as string,
-    });
+    // const { data: products, loading: productsLoading, error: productsError } = FatchingTable<Product>({
+    //     table: process.env.NEXT_PUBLIC_PRODUCTS as string,
+    // });
 
-    if (homeLoading || productsLoading) {
+    if (homeLoading) {
         return <HomeSkelaton />;
     }
 
@@ -35,13 +35,13 @@ export default function ProductsList() {
         return <div>Error: {homeError.message}</div>;
     }
 
-    if (productsError) {
-        return <div>Error: {productsError.message}</div>;
-    }
+    // if (productsError) {
+    //     return <div>Error: {productsError.message}</div>;
+    // }
 
     const homeData = home[0];
 
-    const sortedProducts = products ? [...products].sort((a, b) => b.rating - a.rating) : [];
+    // const sortedProducts = products ? [...products].sort((a, b) => b.rating - a.rating) : [];
 
     return (
         <>
@@ -110,7 +110,7 @@ export default function ProductsList() {
                 <div className="absolute bottom-0 left-0 w-full h-1/6 bg-gradient-to-t from-[#f3f3f3] via-[#f3f3f3]/70 to-transparent" />
             </section>
 
-            <PopularProduct products={sortedProducts} />
+            {/* <PopularProduct products={sortedProducts} /> */}
         </>
     );
 } 
