@@ -33,7 +33,7 @@ export default function PopularProduct({ products }: { products: Product[] }) {
         : [];
 
     return (
-        <div className='relative px-4 sm:px-6 md:px-10 xl:absolute bottom-0 left-0 right-0 xl:bottom-[-500px] xl:left-0 xl:right-0 mb-10'>
+        <div className='relative px-4 sm:px-6 md:px-10 xl:absolute bottom-0 left-0 right-0 xl:bottom-[-650px] xl:left-0 xl:right-0 mb-10'>
             <div className="container">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
