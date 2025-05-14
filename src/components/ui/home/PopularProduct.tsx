@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Product } from "@/components/ui/products/types/products"
 
 export default function PopularProduct({ products }: { products: Product[] }) {
-    // Sort products by rating in descending order and take only top 3
     const topThreeProducts = Array.isArray(products)
         ? [...products]
             .filter(product => product && product.image_url && product.title)
@@ -20,7 +19,7 @@ export default function PopularProduct({ products }: { products: Product[] }) {
                             <div className="relative w-full aspect-[3/2] mb-3 md:mb-4 overflow-hidden rounded-lg md:rounded-xl">
                                 <Image
                                     src={product.image_url}
-                                    alt={product.title}
+                                    alt={"product image"}
                                     width={250}
                                     height={167}
                                     className="rounded-lg md:rounded-xl object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
