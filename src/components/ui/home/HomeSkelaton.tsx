@@ -54,7 +54,7 @@ export default function HomeSkelaton() {
             </section>
 
             {/* Popular Products Section Skeleton */}
-            <div className='relative px-4 sm:px-6 md:px-10 xl:absolute bottom-0 left-0 right-0 xl:bottom-[-500px] xl:left-0 xl:right-0 mb-10'>
+            <div className='relative px-4 sm:px-6 md:px-10 mb-10 mt-10'>
                 <div className="container">
                     <div className="flex flex-row bg-[#F9D9AA] px-4 sm:px-6 md:px-10 py-6 md:py-10 rounded-2xl md:rounded-3xl gap-4 md:gap-6 lg:gap-10 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default snap-x snap-mandatory md:snap-none">
                         {[1, 2, 3].map((i) => (

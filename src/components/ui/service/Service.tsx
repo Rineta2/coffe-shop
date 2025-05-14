@@ -21,7 +21,7 @@ export default function ProductsList() {
     }
 
     return (
-        <section className="xl:pt-[500px] py-6 md:py-10" id="delivery">
+        <section className="py-6 md:py-10" id="delivery">
             <div className="container px-4 md:px-10">
                 <ServiceHeader />
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
