@@ -8,6 +8,8 @@ import ServiceList from '@/components/ui/service/Service'
 
 import About from "@/components/ui/about/About"
 
+import Testimonials from "@/components/ui/testimonials/Testimonials"
+
 export default function page() {
   return (
     <Fragment>
@@ -15,6 +17,7 @@ export default function page() {
       <ServiceList />
       <About />
       <ProductsList />
+      <Testimonials />
     </Fragment>
   )
 }

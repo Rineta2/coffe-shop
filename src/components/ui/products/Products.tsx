@@ -14,6 +14,8 @@ import PaginationProducts from '@/components/ui/products/PaginationProducts';
 
 import ProductSkelaton from "@/components/ui/products/ProductSkelaton"
 
+import ProductError from "@/components/ui/products/ProductError"
+
 export default function ProductsList() {
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
     const { data: products, loading, error } = FatchingTable<Product>({
@@ -43,7 +45,7 @@ export default function ProductsList() {
     }
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return <ProductError />
     }
 
     return (
