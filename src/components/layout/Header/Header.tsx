@@ -275,7 +275,7 @@ export default function Header() {
                                     </div>
                                 ) : (
                                     <Link
-                                        href="/login"
+                                        href="/signin"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center gap-2 text-lg sm:text-xl font-medium px-4 py-3 rounded-xl bg-gradient-to-r from-[#ff902a] to-[#ff6b2a] text-white shadow-lg shadow-[#ff902a]/20 hover:shadow-xl hover:shadow-[#ff902a]/30 transition-all duration-300 w-full"
                                     >
